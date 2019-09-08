@@ -1,6 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+let styles = {
+  textDecoration: 'none',
+  color: 'black'
+};
 
 const SavedList = props => (
   <div className="saved-list">
@@ -9,7 +13,7 @@ const SavedList = props => (
       <span className="saved-movie">{movie.title}</span>
     ))}
     <div className="home-button">
-    <Link to='/'>Home</Link>
+    <Link to='/' style={styles}>Home</Link>
     </div>
   </div>
 );
