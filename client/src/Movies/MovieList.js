@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 
 const MovieList = props => {
   const [movies, setMovies] = useState([])
@@ -16,13 +18,20 @@ const MovieList = props => {
     }
     
     getMovies();
-  }, []);
+  }, []);  
+
+  let styles = {
+    textDecoration: 'none',
+    color: 'black'
+  };
   
   return (
-    <div className="movie-list">
+    <div className="movie-list" >     
       {movies.map(movie => (
-        <MovieDetails key={movie.id} movie={movie} />
-      ))}
+         <Link to={`movies/${movie.id}`}  style={styles}>
+           <MovieDetails key={movie.id} movie={movie} />
+         </Link>
+      ))}     
     </div>
   );
 }
